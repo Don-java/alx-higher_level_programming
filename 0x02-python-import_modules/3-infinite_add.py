@@ -1,4 +1,3 @@
-3-infinite_add.py
 #!/usr/bin/python3
 
 if __name__ == "__main__":
