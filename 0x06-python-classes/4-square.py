@@ -1,23 +1,28 @@
 #!/usr/bin/python3
-class Square:
-    def __init__(self, size=0):
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        if size < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = size
+"""Square with size"""
 
-    def area(self):
-        return (self.__size ** 2)
+
+class Square:
+    """Representation of a square"""
+
+    def __init__(self, size=0):
+        """Instantiation with optional size"""
+        self.size = size
 
     @property
     def size(self):
-        return self.__size
+        """Property to retrieve size"""
+        return (self.__size)
 
     @size.setter
-    def size(self, sizze):
-        if not isinstance(sizze, int):
+    def size(self, value):
+        """Property setter to set size"""
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        if sizze < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = sizze
+        self.__size = value
+
+    def area(self):
+        """Public instance method that returns the current square area"""
+        return self.__size ** 2
