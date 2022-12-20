@@ -1,18 +1,19 @@
 #!/usr/bin/python3
-Square = __import__('3-square').Square
+"""Square with size"""
 
-my_square_1 = Square(3)
-print("Area: {}".format(my_square_1.area()))
 
-try:
-    print(my_square_1.size)
-except Exception as e:
-    print(e)
+class Square:
+    """Representation of a square"""
 
-try:
-    print(my_square_1.__size)
-except Exception as e:
-    print(e)
+    def __init__(self, size=0):
+        """Instantiation with optional size"""
+        if type(size) != int:
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
 
-my_square_2 = Square(5)
-print("Area: {}".format(my_square_2.area()))
+    def area(self):
+        """Public instance method that returns the current square area"""
+        return self.__size ** 2
